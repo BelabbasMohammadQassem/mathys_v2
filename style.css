@@ -738,3 +738,13 @@ nav {
         font-size: 1rem;
     }
 }
+
+.social-button.discord {
+    background-color: #5865F2; /* Couleur officielle de Discord */
+    color: white; /* Texte en blanc */
+}
+
+.social-button.discord:hover {
+    background-color: #4752C4; /* Version plus foncée pour l'effet hover */
+}
+
