@@ -9,6 +9,7 @@ body {
     color: #ffffff;
 }
 
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400&display=swap');
 /* Navigation */
 nav {
     background: rgba(0, 0, 0, 0.8);
@@ -639,23 +640,29 @@ nav {
 
 .hero-content {
     text-align: center;
-    z-index: 1;
-    padding: 2rem;
-}
+    background: rgba(0, 0, 0, 0.7);
+    padding: 30px 40px;
+    border-radius: 8px;
+    animation: fadeIn 1s ease-out forwards;
+    font-family: 'Inter', sans-serif;
+    font-weight: 400; /* Regular weight */
+  }
 
-.hero-title {
+  .hero-title {
     font-size: 3.5rem;
     color: white;
     margin: 0;
     opacity: 0;
     transform: translateY(20px);
     animation: fadeInUp 1s ease-out forwards;
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
   }
 
   .hero-subtitle {
     font-size: 1.8rem;
     color: var(--primary-gold);
-    font-weight: 500;
+    font-weight: 400;
     margin: 0;
     opacity: 0;
     transform: translateY(20px);
@@ -664,6 +671,7 @@ nav {
     text-transform: uppercase;
     letter-spacing: 4px;
     position: relative;
+    font-family: 'Inter', sans-serif;
   }
 
   .hero-subtitle::after {
@@ -773,12 +781,20 @@ html {
     align-items: center; /* Centre verticalement le contenu */
 }
 
+.logo a {
+    display: inline-block; /* ou block selon votre mise en page */
+    text-decoration: none;
+}
+
+
+
 .logo-image {
     max-width: 50px; /* Ajuster la taille comme souhaité */
     height: auto; /* Conserve le ratio de l'image */
     margin-right: 10px; /* Espacement à droite de l'image */
     border-radius: 50%; /* Pour un cercle parfait, vous pouvez utiliser 50% */
     object-fit: cover; /* Pour s'assurer que l'image remplit le cadre sans déformation */
+    cursor: pointer; /* ajoute un curseur pointer au survol */
 }
 
 
