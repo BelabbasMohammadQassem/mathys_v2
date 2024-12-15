@@ -118,15 +118,17 @@ nav {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 4rem;
-    align-items: center;
+    align-items: start;
 }
 
 .profile-image {
-    width: 100%;
-    border-radius: 20px;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-    transition: transform 0.3s ease;
+    grid-column: 1;
+    grid-row: span 2;
+    width: 100%; /* Contrôle la largeur de l'image */
+    max-width: 500px; /* Limite la taille maximale */
+    height: auto; /* Maintient le ratio */
 }
+
 
 .profile-image:hover {
     transform: scale(1.02);
@@ -140,15 +142,83 @@ nav {
 /* Social Links */
 .social-links {
     display: flex;
+    flex-wrap: wrap;
     gap: 1rem;
     margin-top: 2rem;
+    grid-column: 2;
+}
+
+.bio {
+    grid-column: 2;
+    position: relative;
+    padding: 2rem;
+    font-style: italic;
+    line-height: 1.8;
+    color: #956B47;
+}
+
+.bio::before,
+.bio::after {
+    content: '"';
+    position: absolute;
+    font-family: Georgia, serif;
+    font-size: 4.5rem;
+    color: #1DA1F2; /* Tu peux adapter la couleur */
+    opacity: 0.2;
+    transition: all 0.3s ease;
+}
+
+.bio::before {
+    top: -1rem;
+    left: -1rem;
+}
+
+.bio::after {
+    bottom: -2rem;
+    right: -1rem;
+}
+
+.bio p {
+    position: relative;
+    z-index: 1;
+    margin: 0;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Version plus élaborée avec un effet de fond */
+.bio {
+    background: linear-gradient(45deg, rgba(29, 161, 242, 0.05), rgba(145, 70, 255, 0.05));
+    border-radius: 15px;
+    transition: transform 0.3s ease;
+}
+
+.bio:hover {
+    transform: translateY(-5px);
+}
+
+/* Animation subtile des guillemets au survol */
+.bio:hover::before {
+    transform: translateY(-3px);
+    opacity: 0.5;
+    transition: all 0.3s ease;
+}
+
+.bio:hover::after {
+    transform: translateY(3px);
+    opacity: 0.5;
+    transition: all 0.3s ease;
 }
 
 .social-button {
-    padding: 0.8rem 2rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.8rem 1.5rem;
     border: none;
     border-radius: 30px;
-    background: #0071e3;
     color: white;
     font-size: 1rem;
     cursor: pointer;
@@ -156,6 +226,76 @@ nav {
     text-decoration: none;
 }
 
+.social-button i {
+    font-size: 1.2rem;
+}
+
+.social-button.youtube {
+    background: #FF0000;
+}
+
+.social-button.tiktok {
+    background: #000000;
+}
+
+.social-button.twitch {
+    background: #9146FF;
+}
+
+.social-button.beacons {
+    background: #1DA1F2;
+}
+
+.social-button.kofi {
+    background: #FF5E5B;
+}
+
+.social-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Effets spécifiques au survol */
+.social-button.youtube:hover {
+    background: #cc0000;
+}
+
+.social-button.tiktok:hover {
+    background: #333333;
+}
+
+.social-button.twitch:hover {
+    background: #7829cc;
+}
+
+.social-button.beacons:hover {
+    background: #0d8ecf;
+}
+
+.social-button.kofi:hover {
+    background: #ff4543;
+}
+
+/* Adaptation mobile */
+@media (max-width: 768px) {
+    .profile-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .profile-image, .bio, .social-links {
+        grid-column: 1;
+    }
+    
+    .social-links {
+        justify-content: center;
+        margin-top: 2rem;
+    }
+    
+    .social-button {
+        padding: 0.6rem 1.2rem;
+        font-size: 0.9rem;
+    }
+}
 .social-button:hover {
     background: #0077ed;
     transform: translateY(-2px);
