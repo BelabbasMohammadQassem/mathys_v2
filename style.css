@@ -885,3 +885,21 @@ nav {
         border-bottom: none;
     }
 }
+
+.email-link {
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+    color: white; /* Le texte est en blanc */
+}
+
+.email-link span {
+    background-color: #414141; /* La couleur de fond de l'encadré */
+    margin-left: 8px;
+    padding: 2px 5px;
+    border-radius: 3px;
+    color: white; /* La couleur du texte à l'intérieur de l'encadré */
+}
+.email-link:hover span {
+    background-color: #333333; /* Change la couleur de fond lors du survol */
+}
